@@ -6,4 +6,8 @@ class Contact < ApplicationRecord
   def full_name
     "#{last_name}, #{first_name}"
   end
+
+  def japan_phone_number
+    "+81 #{phone}"
+  end
 end
