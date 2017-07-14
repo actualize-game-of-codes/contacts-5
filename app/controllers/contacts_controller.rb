@@ -14,7 +14,14 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
+    @contact = Contact.create(
+      first_name: params[:first_name],
+      middle_name: params[:middle_name],
+      last_name: params[:last_name],
+      email: params[:email],
+      phone: params[:phone],
+      bio: params[:bio]
+    )
     flash[:success] = "Contact created."
     redirect_to "/contacts/#{@contact.id}"
   end
