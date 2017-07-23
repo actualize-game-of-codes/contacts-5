@@ -41,7 +41,8 @@ class ContactsController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       phone: params[:phone],
-      bio: params[:bio]
+      bio: params[:bio],
+      user_id: current_user.id
     )
     flash[:success] = "Contact created."
     redirect_to "/contacts/#{@contact.id}"
