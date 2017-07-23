@@ -15,9 +15,14 @@ class ContactsController < ApplicationController
     # @contacts = Contact.where(user_id: current_user.id)
 
     # JUST USING RAILS ASSOCIATIONS
-    @contacts = current_user.contacts
+    if current_user
+      @contacts = current_user.contacts
+      render "index.html.erb"
+    else
+      flash[:warning] = "You must be logged in to see your contacts!"
+      redirect_to "/login"
+    end
 
-    render "index.html.erb"
   end
 
   def show
