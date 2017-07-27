@@ -60,7 +60,9 @@
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <% Group.all.each do |group| %>
+                  <li><a href="/contacts?input_group_name=<%= group.name %>">Only show <%= group.name %></a></li>
+                <% end %>
               </ul>
             </li>
           </ul>

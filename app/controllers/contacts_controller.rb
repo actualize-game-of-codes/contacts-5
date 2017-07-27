@@ -17,6 +17,9 @@ class ContactsController < ApplicationController
     # JUST USING RAILS ASSOCIATIONS
     if current_user
       @contacts = current_user.contacts
+      if params[:input_group_name]
+        @contacts = Group.find_by(name: params[:input_group_name]).contacts.where(user_id: current_user.id)
+      end
       render "index.html.erb"
     else
       flash[:warning] = "You must be logged in to see your contacts!"
