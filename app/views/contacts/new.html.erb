@@ -1,34 +1,4 @@
 <h1>New Contact</h1>
-<%= form_tag "/contacts", method: :post do %>
+<%= render "form", input_url: "/contacts", input_verb: "post", input_button_message: "Create Contact!" %>
 
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-   
-      <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
-    First Name: <input type="text" name="first_name" value="<%= @contact.first_name %>">
-  </div>
-  <div>
-    Middle Name: <input type="text" name="middle_name" value="<%= @contact.middle_name %>">
-  </div>
-  <div>
-    Last Name: <input type="text" name="last_name" value="<%= @contact.last_name %>">
-  </div>
-  <div>
-    Email: <input type="text" name="email" value="<%= @contact.email %>">
-  </div>
-  <div>
-    Phone: <input type="text" name="phone" value="<%= @contact.phone %>">
-  </div>
-  <div>
-    Bio: <textarea name="bio" cols="30" rows="10"><%= @contact.bio %></textarea>
-  </div>
-  <input type="submit" value="Create Contact!">
-<% end %>
+
