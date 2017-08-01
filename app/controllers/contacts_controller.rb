@@ -63,7 +63,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find_by(id: params[:id])
-    if @contact.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
+    if @contact.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], bio: params[:bio], middle_name: params[:middle_name])
       flash[:success] = "Contact updated."
       redirect_to "/contacts/#{@contact.id}"
     else
