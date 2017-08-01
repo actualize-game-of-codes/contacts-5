@@ -34,6 +34,7 @@ class ContactsController < ApplicationController
   end
 
   def new
+    @contact = Contact.new
     render "new.html.erb"
   end
 
